@@ -1,0 +1,46 @@
+{
+  "name": "django-webpack-demo",
+  "version": "1.0.0",
+  "description": "Tech demo for serving your SPA as a Django App while maintaining the development tools from Webpack's DevServer",
+  "main": "src/index.js",
+  "dependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-bundle-tracker": "^0.4.2-beta",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyshka/django-webpack-demo.git"
+  },
+  "keywords": [
+    "django",
+    "react",
+    "webpack"
+  ],
+  "author": "Bryan Hyshka <bryan@hyshka.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/hyshka/django-webpack-demo#readme",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  }
+}
