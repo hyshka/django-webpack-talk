@@ -10,7 +10,7 @@ By Bryan Hyshka
 
 ## Overview
 
-- Explore two common architectures for integrating a Single Page App into Django
+- Explore two common architectures for integrating a Single Page App with Django
 
 - Live demo of the techmeet app (Same Origin)
 
@@ -38,17 +38,17 @@ By Bryan Hyshka
 
 ## Archicture #1: Distinct Origins
 
-- Frontend + Backend codebases stored in separate repos and live on different
-  domains
+- Frontend + Backend codebases are stored in separate repos and live on
+  different domains
 
 - Frontend serves HTML and static files
 
 - Requires that you set up CORS (cross-origin resource sharing) policies on your
   Backend
 
-- JWT (JSON Web Token) authentication is most common here
+- JWT (JSON Web Token) authentication is most common
 
-- No need to worry about CSRF (cross-site request forgery) because JWT does not
+- No need to worry about CSRF (cross-site request forgery) because JWTs don't
   provide ambient authority
 
 ---
@@ -116,7 +116,7 @@ By Bryan Hyshka
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script src="{% static 'bundles/main.js' %}"></script>
+    <script src="/static/bundles/main.js"></script>
   </body>
 </html>
 ```
@@ -152,7 +152,7 @@ module.exports = {
     publicPath: "/static/bundles/",
   },
   devServer: {
-    // The bundled files will be available in the browser under this path
+    // The bundled files will be available in the Browser under this path
     // Webpack recommends this to be the same as output.publicPath
     publicPath: "/static/bundles/",
 
@@ -180,7 +180,7 @@ module.exports = {
 - Easy to integrate into an existing Django project
 
 - If SEO is a concern you can build your public-facing site with static HTML
-  pages, or even integrate a CMS like Wagtail if you need it
+  pages, or even integrate a CMS if you need it
 
 - Frontend and Backend code maintained in the same repository makes it easy to
   test the application as a whole
