@@ -1,3 +1,7 @@
+%title: Developing your SPA with Django and Webpack
+%author: Bryan Hyshka
+%date: 2019-04-04
+
 # Developing your SPA with Django and Webpack
 
 By Bryan Hyshka
@@ -106,6 +110,17 @@ By Bryan Hyshka
 
 - The browser fetches all assets from the Backend
 
+```
+<html lang="en">
+  <head>...</head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script src="{% static 'bundles/main.js' %}"></script>
+  </body>
+</html>
+```
+
 ---
 
 ## What about local development?
@@ -121,6 +136,42 @@ By Bryan Hyshka
 
 - If you run it inside a Docker container, the host and container port needs to
   be the same
+
+---
+
+## What about local development?
+
+```
+module.exports = {
+  entry: "./techmeet/static/app/index",
+  output: {
+    path: path.resolve(__dirname, "techmeet/static/bundles"),
+    filename: "main.js",
+
+    // The url to the output directory resolved relative to the HTML page
+    publicPath: "/static/bundles/",
+  },
+  devServer: {
+    // The bundled files will be available in the browser under this path
+    // Webpack recommends this to be the same as output.publicPath
+    publicPath: "/static/bundles/",
+
+    // Listen to all network interfaces
+    host: "0.0.0.0",
+    port: "3000",
+
+    // Forward all requests from the Browser to the Backend
+    proxy: {
+      "**": "http://localhost:8000",
+    },
+
+    // Enable Webpack's Hot Module Replacement
+    hot: true,
+  },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
+  ...
+}
+```
 
 ---
 
@@ -152,5 +203,3 @@ By Bryan Hyshka
 - https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 - https://en.wikipedia.org/wiki/JSON_Web_Token
 - https://en.wikipedia.org/wiki/Cross-site_request_forgery
-
----
