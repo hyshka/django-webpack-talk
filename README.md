@@ -10,3 +10,7 @@ Tech demo for serving your SPA as a Django App while maintaining the development
 View the `SLIDES.md` for my notes on installation and why I wanted to explore this implentation.
 
 - https://github.com/visit1985/mdp
+
+```
+mdp -ifc SLIDES.md
+```
