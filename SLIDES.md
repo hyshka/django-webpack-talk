@@ -6,12 +6,15 @@ By Bryan Hyshka
 
 ## Overview
 
-- Explore two common architectures for integrating a SPA into Django
+- Explore two common architectures for integrating a Single Page App into Django
 
 - Live demo of the techmeet app (Same Origin)
 
-- Explain how Django serves the HTML + static files in production, but how
-  Webpack serves the static files in development for hot reloading
+- Explain how Django serves the Single Page App in production
+
+- Explain how we use Webpack's DevServer in development
+
+- Summarize why I'm interested in exploring the Same Origin model
 
 ---
 
